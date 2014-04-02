@@ -1,0 +1,300 @@
+/* Stylesheet for Rekentool. */
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----- Basic overrides and resets -------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+
+@import url('reset.css');
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----- Stijlen: General ------------------------------------------------------------------ */
+/* ----------------------------------------------------------------------------------------- */
+
+body {
+	font-family: Arial, Verdana, sans-serif;
+	color: #333333;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: normal;
+	background: #cccccc;
+}
+
+.info {
+	font-family: 'Shadows Into Light', Arial, sans-serif;
+	font-size: 18px;
+}
+
+h1 {
+	font-size: 24px;
+	line-height: 32px;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 18px;
+	line-height: 26px;
+	font-weight: bold;
+}
+
+h4 {
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: bold;
+}
+
+h4, h5 {
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: bold;
+}
+
+h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: #333333;
+	text-decoration: none;
+}
+
+h2 a:hover, h3 a:hover,
+h4 a:hover, h5 a:hover, h6 a:hover {
+	text-decoration: underline;
+}
+
+a {
+	color: #333333;
+	text-decoration: underline;
+	-webkit-transition: all 250ms ease-out;
+			transition: all 250ms ease-out;
+}
+
+a:hover {
+	color: #8e8e8e;
+}
+
+button {
+	-webkit-transition: all 250ms ease-out;
+			transition: all 250ms ease-out;
+}
+
+:focus, :hover, :active { outline: 0; }
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----- Landings page --------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+
+.landings-page {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 500px;
+	height: 300px;
+	padding: 15px 15px 0 15px;
+	margin: auto;
+	background: #ffffff;
+}
+
+.landings-page .landings-page-inner {
+	position: relative;
+	height: 100%;
+}
+
+.landings-page .landings-page-inner .languages {
+	position: absolute;
+	top: -53px;
+	right: 15px;
+	padding: 8px 5px;
+	margin: 0;
+	list-style-type: none;
+	background: #ffffff;
+}
+
+.landings-page .landings-page-inner .languages li {
+	display: inline-block;
+	padding: 0;
+	margin: 0 3px;
+}
+
+.landings-page .landings-page-inner .languages li.active a {
+	text-decoration: none;
+}
+
+.landings-page form .form-element .form-element-container input,
+.landings-page form .form-element .form-element-container select,
+.landings-page form .form-element .form-element-container textarea {
+	width: 100%;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----- Forms ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+
+input, textarea, select, button, .button {
+	width: 100%;
+	height: 34px;
+	padding: 6px 10px;
+	font-family: Arial, Verdana, sans-serif;
+	color: #333333;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: normal;
+	background: #cccccc;
+	border: 1px solid transparent;
+}
+
+select {
+	padding: 8px 10px;
+}
+
+textarea {
+	height: 150px;
+}
+
+button, .button {
+	float: left;
+	display: inline-block;
+	width: auto;
+	padding: 4px 10px;
+	color: #333333;
+	text-align: center;
+	text-decoration: none;
+	background: #b2b2b2;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+button:hover, .button:hover {
+	color: #333333;
+	text-decoration: none;
+	background: #8e8e8e;
+}
+
+.form-error-desc,
+.form-succes-desc {
+	width: 100%;
+	padding: 4px 10px;
+	font-size: 12px;
+	font-style: italic;
+	text-align: center;
+}
+
+.form-error-desc {
+	color: #e4bc00;
+	background: #fff9cd;
+	border: 1px solid #e4bc00;
+}
+
+.form-succes-desc {
+	color: #209e26;
+	background: #8fd893;
+	border: 1px solid #209e26;
+}
+
+form:after {
+	display: block;
+    clear: both;
+    content: ".";
+    height: 0;
+    overflow: hidden;
+}
+
+form .form-element {
+	position: relative;
+	margin: 0 0 5px;
+}
+
+form .form-element:after {
+	display: block;
+    clear: both;
+    content: ".";
+    height: 0;
+    overflow: hidden;
+}
+
+form .form-element.form-element-last {
+	float: left;
+	width: 75%;
+}
+
+form .form-element.form-element-button {
+	float: right;
+	width: 25%;
+	padding: 0 0 0 5px;
+}
+
+form .form-element .error-desc {
+	display: block;
+	width: 100%;
+	padding: 4px 10px;
+	margin: 2px 0 0;
+	color: #e4bc00;
+	font-size: 12px;
+	font-style: italic;
+	background: #fff9cd;
+	text-align: center;
+	border: 1px solid #e4bc00;
+}
+
+form .form-element.error input,
+form .form-element.error select,
+form .form-element.error textarea {
+	border-color: #e4bc00;
+}
+
+form .form-element > label {
+	position: absolute;
+	display: inline-block;
+	width: 175px;
+	font-weight: bold;
+	padding: 6px 15px 6px 0;
+}
+
+form.form-no-labels .form-element > label {
+	display: none;
+}
+
+form .form-element .form-element-container {
+	float: right;
+	width: 100%;
+	padding: 0 0 0 175px;
+}
+
+form.form-no-labels .form-element .form-element-container {
+	padding: 0;
+}
+
+form .form-element .form-element-container input,
+form .form-element .form-element-container select,
+form .form-element .form-element-container textarea {
+	width: 75%;
+}
+
+form .form-element.form-element-last .form-element-container input,
+form .form-element.form-element-last .form-element-container select,
+form .form-element.form-element-last .form-element-container textarea {
+	width: 100%;
+}
+
+form .form-element.form-element-button .form-element-container {
+	padding: 0;
+}
+
+form .form-element .form-element-container label {
+	display: inline-block;
+	padding: 6px 15px 6px 0;
+}
+
+form .form-element .form-element-container label input {
+	margin: 5px 8px 4px 0;
+}
+
+form .form-element.form-element-button button,
+form .form-element.form-element-button .button {
+	width: 100%;
+}

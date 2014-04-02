@@ -1,4 +1,4 @@
-loon
+Loon
 ====
 
-Online calculation tool
+NHL Minor The NextWeb Rekentool
