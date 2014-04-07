@@ -1,0 +1,91 @@
+/* SelectBoxIt container */
+.selectboxit-container {
+  width: 438px;
+}
+
+/* Styles that apply to all SelectBoxIt elements */
+.selectboxit-container * {
+  /* Prevents text selection */
+  font-size: 16px !important;
+  font-weight: 600;
+  padding: 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  outline: none;
+  white-space: nowrap;  
+}
+
+.selectboxit-text{
+  width: 438px;
+
+  border-top:1px solid #d4d4d4;
+  border-left:1px solid #d4d4d4;
+  border-right:1px solid #d4d4d4;
+  border-bottom:3px solid #d4d4d4;
+  
+  padding: 20px 15px;
+  font-weight: 400;
+
+  @inlcude border-radius(0px);
+  @include appearance(none);
+  @include box-sizing(border-box);
+  
+  background: url('../img/down.png') no-repeat 100% #fff;
+  background-position: right 20px center;
+  display: inline-block;
+  
+  color: #7f7f7f;
+  
+  cursor:pointer;
+}
+
+/* Options List */
+.selectboxit-container .selectboxit-options {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width: 100%;  /* Minimum Width of the dropdown list box options */
+  width: 438px;
+  max-height: 240px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+  cursor: pointer;
+  display: none;
+  z-index: 9999999999999;
+  border-radius: 6px;
+  text-align: left;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.selectboxit-list {
+  background: #fff;
+  width: 30px;
+  border-radius: 0 !important;
+}
+
+.selectboxit-list .selectboxit-option-anchor {
+  color: #7f7f7f;
+  font-weight: 400;
+  border:1px solid #d4d4d4;
+  width: 438px;
+  display: block;
+  font-size: 14px !important;
+  padding: 15px 14px 15px 15px;
+  margin-top: -1px;
+  @include box-sizing(border-box);
+
+  &:hover{
+    background: $blue;
+    color: #fff;
+  }
+}

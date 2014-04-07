@@ -1,0 +1,64 @@
+$blue: #37afd8;
+
+#landings-page-inner{
+	width: 438px;
+	margin: 0 auto;
+}
+
+/******** Mobile ********/
+
+@media all and (min-width : 0px) and (max-width: 450px){
+	#landings-page-inner{
+		width: 100%;
+		padding: 0 20px;
+		@include box-sizing(border-box);
+	}
+	
+	h1{
+		font-size: 28px !important;
+	}
+}
+
+h1{
+	font-family:'Sanchez';
+	color: #fff; 
+	font-size: 38px;
+	text-align: center;
+	margin-top: 58px !important; 
+}
+
+h2{
+	color: #fff; 
+	font-weight: 100;
+	font-size: 22px !important;
+	text-align: right;
+	margin-right: 30px;
+	margin-bottom: 51px;
+}
+
+h3{
+	font-family:'Sanchez';
+	color: #fff; 
+	font-weight: 400;
+	font-size: 22px !important;
+	line-height: 28px;
+	text-align: center;
+	margin-bottom: 51px;
+}
+
+p{
+	color: #fff; 
+	font-weight: 400;
+	line-height: 26px;
+	font-size: 14px !important;
+	text-align: center;
+	margin-bottom: 51px;
+}
+
+.call{
+	margin-bottom: 86px;
+	font-size: 14px;
+	text-align: center;
+	color: #fff;
+	font-weight: 300;
+}

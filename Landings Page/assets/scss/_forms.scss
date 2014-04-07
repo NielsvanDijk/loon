@@ -1,0 +1,55 @@
+input[type="text"]{
+	width: 100%;
+	color: #7f7f7f;
+	border-top:1px solid #d4d4d4;
+	border-left:1px solid #d4d4d4;
+	border-right:1px solid #d4d4d4;
+	border-bottom:3px solid #d4d4d4;
+	padding: 20px 15px;
+	font-weight: 100 !important;
+	@include box-sizing(border-box);
+	display: inline-block; 
+	margin-bottom: 19px !important;
+}
+
+/*select {
+    border-top:1px solid #d4d4d4;
+	border-left:1px solid #d4d4d4;
+	border-right:1px solid #d4d4d4;
+	border-bottom:3px solid #d4d4d4;
+	padding: 20px 15px;
+	width: 100%;
+	border-radius:0px !important;
+	-webkit-border-radius:0px !important;
+	border-top-left-radius:0px !important;
+    margin: 0;
+    font-weight: 100;
+    background: url('../img/down.png') no-repeat 100% #fff;
+    background-position: right 20px center;
+    color:#7f7f7f;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}*/
+
+button{
+	width: 100%;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom:3px solid #2a89aa;
+	padding: 15px 0px;
+	color: #fff;
+	font-weight: 400;
+	font-size: 16px;
+	background-color: $blue;
+	@include box-sizing(border-box);
+	display: inline-block; 
+	margin-bottom: 19px !important;
+
+	&.top{
+		margin-top: 19px;
+	}
+}
