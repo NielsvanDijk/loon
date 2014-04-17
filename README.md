@@ -1,11 +1,12 @@
 Loon
 ====
 
-NHL Minor The NextWeb Rekentool
+####NHL Minor The NextWeb Rekentool
 
+---
 
-## Loonberekening
-
-MAC (in mijn geval)
-cd /Applications/XAMPP/htdocs/loonberekening/
+### Loonberekening
+<br/>
+MAC (in mijn geval) <br/>
+cd /Applications/XAMPP/htdocs/loonberekening/<br/>
 php artisan serve
