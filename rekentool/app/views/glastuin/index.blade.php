@@ -52,7 +52,7 @@ $( function() {
 				if( diff > 0 ) {
 					$( '#result' ).text( 'Je verdient ' + diff + ' te veel!' );
 				} else if( diff < 0 ) {
-					$( '#result' ).text( 'Je verdient ' + diff + ' te weinig!' );
+					$( '#result' ).text( 'Je verdient ' + (diff * -1)  + ' te weinig!' );
 				} else {
 					$( '#result' ).text( 'Je verdient precies genoeg!' );
 				}
