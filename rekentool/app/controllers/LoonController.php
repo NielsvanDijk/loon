@@ -9,11 +9,32 @@ class LoonController extends \BaseController {
 	 */
 	public function index()
 	{
-		$caoGlasTuin = Glas::all();
+		$caos = Caos::all();
+		$salaries = Salaries::all();
 
-		return View::make('glastuin.index')->with('caoGlasTuin',$caoGlasTuin);
+		return View::make('glastuin.index')
+			->with('salaries', $salaries)
+			->with('caos', $caos);
 	}
 
+
+	function calculate()
+	{
+		$birthDay      = Input::get( 'birthday' );
+		$birthDate     = strtotime( $birthDay );
+		$currentSalary = (float) Input::get( 'salary' );
+		$age           = date( 'Y' ) - date( 'Y', $birthDate );
+
+		if( date( 'md', date( 'U', $birthDate ) ) > date( 'md' ) )
+			$age = $age - 1;
+
+		$minimumSalary = (float) Salaries::where( 'age', '=', $age )->firstOrFail()->value;
+
+		return Response::JSON( [
+			'age'        => $age,
+			'difference' => $currentSalary - $minimumSalary
+		] );
+	}
 
 	/**
 	 * Show the form for creating a new resource.

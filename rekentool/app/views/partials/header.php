@@ -17,5 +17,7 @@
 			padding:10px 10px;
 		}
 	</style>
+	<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+	<script src="assets/js/main.js"></script>
 </head>
 <body>
