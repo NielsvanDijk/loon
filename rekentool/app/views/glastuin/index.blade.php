@@ -33,6 +33,7 @@
 <br/><input type="submit" value="Bereken"/>
 
 <div id="result"></div>
+<div id="validation-errors"></div>
 
 <script>
 $( function() {
@@ -46,10 +47,13 @@ $( function() {
 			type: "GET",
 			url: "{{ URL::route( "loon.calculate" ) }}",
 			data: { "birthday" : birthday, "salary" : salary },
+			beforeSend: function() { 
+                $("#validation-errors").hide().empty();
+                $("#result").empty();
+            },
 			success: function(data){ 
-				var diff = data.difference;
-
-				if(diff){
+				if(data.success == true){
+					var diff = data.difference
 					if( diff > 0 ) {
 						$( '#result' ).text( 'Je verdient ' + diff + ' te veel!' );
 					} else if( diff < 0 ) {
@@ -58,9 +62,24 @@ $( function() {
 						$( '#result' ).text( 'Je verdient precies genoeg!' );
 					}
 				} else{
-					$( '#result' ).text( data );
+					var errors = data.errors;
+                    if($.isPlainObject(errors)){
+                        $.each(errors, function(index, value)
+                        {
+                            if (value.length != 0)
+                            {
+                                $("#validation-errors").append('<div class="alert alert-error">'+ value +'<div>');
+                            }
+                        });
+                        $("#validation-errors").show();
+                   	} else{ 
+                   		$("#validation-errors").append('<div class="alert alert-error">'+ errors +'<div>');
+                   		$("#validation-errors").show();
+                   	}
 				}
-
+			},
+			error: function(xhr, textStatus, thrownError) {
+                alert('Something went to wrong.');
 			}
 		});
 	});
