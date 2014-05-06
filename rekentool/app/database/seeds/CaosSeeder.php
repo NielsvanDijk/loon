@@ -1,11 +1,11 @@
 <?
-class CaoSeeder extends Seeder
+class CaosSeeder extends Seeder
 {
 	public function run()
 	{
-		DB::table('cao')->truncate();
+		DB::table('caos')->truncate();
 
-		Cao::create(array(
+		Caos::create(array(
 			'name' 			=> 'Glas en Tuinbouw',
 			'duration' 		=> '38'
 		));

@@ -28,8 +28,7 @@
 	<input type="date" id="birthday" name="birthday"/><br/>
 
 <label for="salary">{{Lang::get('rekentool-home.Loon per uur')}}</label>
-	<input type="text" id="salary" placeholder="{{Lang::get('rekentool-home.Loon per uur')}}
-" name="salary"/>
+	<input type="text" id="salary" placeholder="{{Lang::get('rekentool-home.Loon per uur')}}" name="salary"/>
 
 <br/><input type="submit" value="Bereken"/>
 

@@ -32,6 +32,34 @@ class SalariesSeeder extends Seeder
 			'catagory' 		=> 'B',
 			'value' 		=> '7.072'
 		));
+
+		Salaries::create(array(
+			'cao_id' 		=> '1',
+			'age' 			=> '19',
+			'catagory' 		=> 'B',
+			'value' 		=> '3.536'
+		));
+
+		Salaries::create(array(
+			'cao_id' 		=> '1',
+			'age' 			=> '20',
+			'catagory' 		=> 'B',
+			'value' 		=> '4.42'
+		));
+
+		Salaries::create(array(
+			'cao_id' 		=> '1',
+			'age' 			=> '21',
+			'catagory' 		=> 'B',
+			'value' 		=> '5.304'
+		));
+
+		Salaries::create(array(
+			'cao_id' 		=> '1',
+			'age' 			=> '22',
+			'catagory' 		=> 'B',
+			'value' 		=> '7.072'
+		));
 	}
 }
 
