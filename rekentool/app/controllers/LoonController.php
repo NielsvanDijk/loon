@@ -28,12 +28,17 @@ class LoonController extends \BaseController {
 		if( date( 'md', date( 'U', $birthDate ) ) > date( 'md' ) )
 			$age = $age - 1;
 
-		$minimumSalary = (float) Salaries::where( 'age', '=', $age )->firstOrFail()->value;
+		$result = DB::table('salaries')->where('age', $age)->first();
 
-		return Response::JSON( [
-			'age'        => $age,
-			'difference' => $currentSalary - $minimumSalary
-		] );
+		if( !empty($result) ){
+			$minimumSalary = (float)$result->value;
+			return Response::JSON( [
+				'age'			=> $age,
+				'difference' 	=> $currentSalary - $minimumSalary
+			] );
+		} else{
+			return 'no results found';
+		}
 	}
 
 	/**

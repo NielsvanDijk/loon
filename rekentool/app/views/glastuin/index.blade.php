@@ -39,24 +39,30 @@ $( function() {
 	$( 'input[type="submit"]' ).on( 'click', function( e ) {
 		e.preventDefault();
 
-		$.get(
-			'{{ URL::route( "loon.calculate" ) }}',
-			{
-				birthday : $( '#birthday' ).val(),
-				salary   : $( '#salary' ).val()
-			},
-			function( data ) {
+		var birthday = $( '#birthday' ).val();
+		var salary = $( '#salary' ).val();
+
+		$.ajax({
+			type: "GET",
+			url: "{{ URL::route( "loon.calculate" ) }}",
+			data: { "birthday" : birthday, "salary" : salary },
+			success: function(data){ 
 				var diff = data.difference;
 
-				if( diff > 0 ) {
-					$( '#result' ).text( 'Je verdient ' + diff + ' te veel!' );
-				} else if( diff < 0 ) {
-					$( '#result' ).text( 'Je verdient ' + (diff * -1)  + ' te weinig!' );
-				} else {
-					$( '#result' ).text( 'Je verdient precies genoeg!' );
+				if(diff){
+					if( diff > 0 ) {
+						$( '#result' ).text( 'Je verdient ' + diff + ' te veel!' );
+					} else if( diff < 0 ) {
+						$( '#result' ).text( 'Je verdient ' + (diff * -1)  + ' te weinig!' );
+					} else {
+						$( '#result' ).text( 'Je verdient precies genoeg!' );
+					}
+				} else{
+					$( '#result' ).text( data );
 				}
+
 			}
-		);
-	} );
-} );
+		});
+	});
+});
 </script>

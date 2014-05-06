@@ -13,4 +13,9 @@
 
 Route::resource('/', 'LoonController');
 
-Route::get( '/calculate', [ 'as' => 'loon.calculate', 'uses' => 'LoonController@calculate' ] );
+//Route::get( '/calculate', [ 'as' => 'loon.calculate', 'uses' => 'LoonController@calculate' ] );
+
+Route::get('calculate', array(
+    'uses' => 'LoonController@calculate',
+    'as' => 'loon.calculate'
+    ));
