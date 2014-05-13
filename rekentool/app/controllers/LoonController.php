@@ -22,41 +22,27 @@ class LoonController extends \BaseController {
 	{
 		$input = Input::all();
 
-		$rules = array(
-			'salary'	=> 'required|decimal',
-			'birthday'	=> 'required|date'
-		);
+		$birthDay      = $input['birthday'];
+		$birthDate     = strtotime( $birthDay );
+		$currentSalary = (float)$input['salary'];
+		$age           = date( 'Y' ) - date( 'Y', $birthDate );
 
-		$validation = Validator::make($input, $rules);
+		if( date( 'md', date( 'U', $birthDate ) ) > date( 'md' ) )
+			$age = $age - 1;
 
-		if($validation->passes()){
-			$birthDay      = $input['birthday'];
-			$birthDate     = strtotime( $birthDay );
-			$currentSalary = (float)$input['salary'];
-			$age           = date( 'Y' ) - date( 'Y', $birthDate );
+		$result = DB::table('salaries')->where('age', $age)->first();
 
-			if( date( 'md', date( 'U', $birthDate ) ) > date( 'md' ) )
-				$age = $age - 1;
-
-			$result = DB::table('salaries')->where('age', $age)->first();
-
-			if( !empty($result) ){
-				$minimumSalary = (float)$result->value;
-				return Response::JSON( [
-					'success'		=> true,
-					'age'			=> $age,
-					'difference' 	=> $currentSalary - $minimumSalary
-				] );
-			} else{
-				return Response::JSON( [
-					'success'	=> false,
-					'errors' 	=> 'no results found'
-				] );
-			}
-		} else{ 
+		if( !empty($result) ){
+			$minimumSalary = (float)$result->value;
+			return Response::JSON( [
+				'success'		=> true,
+				'age'			=> $age,
+				'difference' 	=> $currentSalary - $minimumSalary
+			] );
+		} else{
 			return Response::JSON( [
 				'success'	=> false,
-				'errors' 	=> $validation->getMessageBag()->toArray()
+				'errors' 	=> 'no results found'
 			] );
 		}
 	}

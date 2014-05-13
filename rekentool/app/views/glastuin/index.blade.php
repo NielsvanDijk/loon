@@ -39,8 +39,7 @@
 
 <script>
 $( function() {
-	$( 'input[type="submit"]' ).on( 'click', function( e ) {
-		e.preventDefault();
+	$( 'input[type="submit"]' ).on( 'click', function() {
 
 		var birthday = $( '#birthday' ).val();
 		var salary = $( '#salary' ).val();
@@ -54,7 +53,7 @@ $( function() {
                 $("#result").empty();
             },
 			success: function(data){ 
-				if(data.success == true){
+				console.log('hier');
 					var diff = data.difference
 					if( diff > 0 ) {
 						$( '#result' ).text( 'Je verdient ' + diff + ' te veel!' );
@@ -63,25 +62,7 @@ $( function() {
 					} else {
 						$( '#result' ).text( 'Je verdient precies genoeg!' );
 					}
-				} else{
-					var errors = data.errors;
-                    if($.isPlainObject(errors)){
-                        $.each(errors, function(index, value)
-                        {
-                            if (value.length != 0)
-                            {
-                                $("#validation-errors").append('<div class="alert alert-error">'+ value +'<div>');
-                            }
-                        });
-                        $("#validation-errors").show();
-                   	} else{ 
-                   		$("#validation-errors").append('<div class="alert alert-error">'+ errors +'<div>');
-                   		$("#validation-errors").show();
-                   	}
-				}
-			},
-			error: function(xhr, textStatus, thrownError) {
-                alert('Something went to wrong.');
+				
 			}
 		});
 	});

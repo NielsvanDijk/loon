@@ -1,4 +1,3 @@
-jQuery.noConflict();
 jQuery(document).ready(function($){
 
     /*
@@ -25,7 +24,7 @@ jQuery(document).ready(function($){
             //     if( ! re.test( value ) )
             //         error = true
             // break; 
-            
+
             default:
                 if( value == '' )
                     error = true;
