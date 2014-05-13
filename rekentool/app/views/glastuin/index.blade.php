@@ -27,10 +27,12 @@
 	<p class="form-field">
 		<label for="birthday">{{Lang::get('rekentool-home.Geboorte datum')}}</label>
 		<input type="date" id="birthday" area-required="true" data-validation-type="date" name="birthday"/>
+		<span class="error-message"></span>
 	</p>
 	<p class="form-field">
 		<label for="salary">{{Lang::get('rekentool-home.Loon per uur')}}</label>
 		<input type="text" id="salary" class="salary" area-required="true" data-validation-type="salary" placeholder="{{Lang::get('rekentool-home.Loon per uur')}}" name="salary"/>
+		<span class="error-message"></span>
 	</p>
 	<input type="submit" value="Bereken"/>
 </div>
@@ -39,7 +41,8 @@
 
 <script>
 $( function() {
-	$( 'input[type="submit"]' ).on( 'click', function() {
+	$( 'input[type="submit"]' ).on( 'click', function( e ) {
+		e.preventDefault();
 
 		var birthday = $( '#birthday' ).val();
 		var salary = $( '#salary' ).val();
@@ -53,7 +56,7 @@ $( function() {
                 $("#result").empty();
             },
 			success: function(data){ 
-				console.log('hier');
+				if(data.success == true){
 					var diff = data.difference
 					if( diff > 0 ) {
 						$( '#result' ).text( 'Je verdient ' + diff + ' te veel!' );
@@ -62,7 +65,25 @@ $( function() {
 					} else {
 						$( '#result' ).text( 'Je verdient precies genoeg!' );
 					}
-				
+				} else{
+					var errors = data.errors;
+                    if($.isPlainObject(errors)){
+                        $.each(errors, function(index, value)
+                        {
+                            if (value.length != 0)
+                            {
+                                $("#validation-errors").append('<div class="alert alert-error">'+ value +'<div>');
+                            }
+                        });
+                        $("#validation-errors").show();
+                   	} else{ 
+                   		$("#validation-errors").append('<div class="alert alert-error">'+ errors +'<div>');
+                   		$("#validation-errors").show();
+                   	}
+				}
+			},
+			error: function(xhr, textStatus, thrownError) {
+                alert('Something went to wrong.');
 			}
 		});
 	});

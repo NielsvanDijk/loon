@@ -17,22 +17,25 @@ jQuery(document).ready(function($){
                 var re = /^\d+(?:\.\d\d?)?$/;
                 if( ! re.test( value ) )
                     error = true;
+                    message = 'no valid decimal (example: 8.43)';
             break;
 
-            // case 'date':
-            //     var re = /^(((((0[1-9])|(1\d)|(2[0-8]))-((0[1-9])|(1[0-2])))|((31-((0[13578])|(1[02])))|((29|30)-((0[1,3-9])|(1[0-2])))))-((20[0-9][0-9]))|(29-02-20(([02468][048])|([13579][26]))))$/;
-            //     if( ! re.test( value ) )
-            //         error = true
-            // break; 
+            case 'date':
+                message = 'no valid date';
+            break; 
 
             default:
                 if( value == '' )
                     error = true;
         }
 
-        if( error )
+        if( error ){
             field.addClass('has-error');
-        else
+            field.find('.error-message').append('<p class="error">' + message + '</p>');
+        }
+        else{
             field.removeClass('has-error');
+            field.find('.error').hide();
+        }
     });
 });
