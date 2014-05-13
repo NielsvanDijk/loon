@@ -23,15 +23,17 @@
 </table> -->
 
 <h1>Glas en Tuinbouw</h1>
-
-<label for="birthday">{{Lang::get('rekentool-home.Geboorte datum')}}</label>
-	<input type="date" id="birthday" name="birthday"/><br/>
-
-<label for="salary">{{Lang::get('rekentool-home.Loon per uur')}}</label>
-	<input type="text" id="salary" placeholder="{{Lang::get('rekentool-home.Loon per uur')}}" name="salary"/>
-
-<br/><input type="submit" value="Bereken"/>
-
+<div class="loon-form">
+	<p class="form-field">
+		<label for="birthday">{{Lang::get('rekentool-home.Geboorte datum')}}</label>
+		<input type="date" id="birthday" area-required="true" data-validation-type="date" name="birthday"/>
+	</p>
+	<p class="form-field">
+		<label for="salary">{{Lang::get('rekentool-home.Loon per uur')}}</label>
+		<input type="text" id="salary" class="salary" area-required="true" data-validation-type="salary" placeholder="{{Lang::get('rekentool-home.Loon per uur')}}" name="salary"/>
+	</p>
+	<input type="submit" value="Bereken"/>
+</div>
 <div id="result"></div>
 <div id="validation-errors"></div>
 

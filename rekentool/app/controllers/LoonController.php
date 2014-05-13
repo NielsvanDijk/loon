@@ -23,7 +23,7 @@ class LoonController extends \BaseController {
 		$input = Input::all();
 
 		$rules = array(
-			'salary'	=> 'required|integer',
+			'salary'	=> 'required|decimal',
 			'birthday'	=> 'required|date'
 		);
 
