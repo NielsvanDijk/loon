@@ -38,7 +38,7 @@
 		{{ Form::text('salary', null, array('id' => 'salary', 'area-required' => 'true', 'data-validation-type' => 'salary', 'placeholder' => Lang::get('rekentool-home.Loon per uur'))) }}
 		<span class="error-message"></span>
 	</p>
-	<input type="submit" value="Bereken"/>
+	{{ Form::submit('Berekenen') }}
 </div>
 <div id="result"></div>
 <div id="validation-errors"></div>
