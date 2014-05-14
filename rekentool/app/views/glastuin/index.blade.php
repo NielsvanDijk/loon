@@ -25,13 +25,17 @@
 <h1>Glas en Tuinbouw</h1>
 <div class="loon-form">
 	<p class="form-field">
+		<label for="caos">{{Lang::get('rekentool-home.Selecteer CAO')}}</label>
+		{{ Form::select('caos', $caos , Input::old('caos'), array('id' => 'caos')) }}
+	</p>
+	<p class="form-field">
 		<label for="birthday">{{Lang::get('rekentool-home.Geboorte datum')}}</label>
-		<input type="date" id="birthday" area-required="true" data-validation-type="date" name="birthday"/>
+		{{ Form::input('date', 'birthday', null, array('id' => 'birthday', 'area-required' => 'true', 'data-validation-type' => 'date')) }}
 		<span class="error-message"></span>
 	</p>
 	<p class="form-field">
 		<label for="salary">{{Lang::get('rekentool-home.Loon per uur')}}</label>
-		<input type="text" id="salary" class="salary" area-required="true" data-validation-type="salary" placeholder="{{Lang::get('rekentool-home.Loon per uur')}}" name="salary"/>
+		{{ Form::text('salary', null, array('id' => 'salary', 'area-required' => 'true', 'data-validation-type' => 'salary', 'placeholder' => Lang::get('rekentool-home.Loon per uur'))) }}
 		<span class="error-message"></span>
 	</p>
 	<input type="submit" value="Bereken"/>
@@ -46,11 +50,12 @@ $( function() {
 
 		var birthday = $( '#birthday' ).val();
 		var salary = $( '#salary' ).val();
+		var cao = $( '#caos' ).val();
 
 		$.ajax({
 			type: "GET",
 			url: "{{ URL::route( "loon.calculate" ) }}",
-			data: { "birthday" : birthday, "salary" : salary },
+			data: { "birthday" : birthday, "salary" : salary, "cao" : cao },
 			beforeSend: function() { 
                 $("#validation-errors").hide().empty();
                 $("#result").empty();

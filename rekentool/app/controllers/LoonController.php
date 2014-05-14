@@ -9,7 +9,7 @@ class LoonController extends \BaseController {
 	 */
 	public function index()
 	{
-		$caos = Caos::all();
+		$caos = Caos::lists('name', 'id');
 		$salaries = Salaries::all();
 
 		return View::make('glastuin.index')
@@ -22,22 +22,24 @@ class LoonController extends \BaseController {
 	{
 		$input = Input::all();
 
-		$birthDay      = $input['birthday'];
-		$birthDate     = strtotime( $birthDay );
-		$currentSalary = (float)$input['salary'];
-		$age           = date( 'Y' ) - date( 'Y', $birthDate );
+		$birthDay      	= $input['birthday'];
+		$birthDate     	= strtotime( $birthDay );
+		$currentSalary 	= (float)$input['salary'];
+		$age           	= date( 'Y' ) - date( 'Y', $birthDate );
+		$cao 			= $input['cao'];
 
 		if( date( 'md', date( 'U', $birthDate ) ) > date( 'md' ) )
 			$age = $age - 1;
 
-		$result = DB::table('salaries')->where('age', $age)->first();
+		$result = DB::table('salaries')->where('age', $age)->where('cao_id', $cao)->first();
 
 		if( !empty($result) ){
 			$minimumSalary = (float)$result->value;
 			return Response::JSON( [
 				'success'		=> true,
 				'age'			=> $age,
-				'difference' 	=> $currentSalary - $minimumSalary
+				'difference' 	=> $currentSalary - $minimumSalary,
+				'cao'			=> $cao
 			] );
 		} else{
 			return Response::JSON( [

@@ -30,6 +30,7 @@ jQuery(document).ready(function($){
         }
 
         if( error ){
+            field.find('.error').hide();
             field.addClass('has-error');
             field.find('.error-message').append('<p class="error">' + message + '</p>');
         }
