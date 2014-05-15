@@ -35,14 +35,14 @@ jQuery(document).ready(function($){
 
         // Show errors
         if( error ){
-            field.find('.error').remove();
-            field.addClass('has-error');
+            field.find('.error').slideUp('slow').remove();
+            //field.addClass('has-error');
             field.find('.error-message').append('<p class="error">' + message + '</p>');
-            setTimeout('$(\'p.error\').slideUp(\'normal\',function(){$(this).remove()})',5000);
+            //setTimeout('$(\'p.error\').slideUp(\'normal\',function(){$(this).remove()})',5000);
         }
         else{
-            field.removeClass('has-error');
-            field.find('.error').hide();
+            //field.removeClass('has-error');
+            field.find('.error').slideUp('slow').remove();
         }
 
         // Real time update

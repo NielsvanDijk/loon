@@ -12,12 +12,12 @@
 		</p>
 		<p class="form-element">
 			<label for="salary">{{Lang::get('rekentool-home.Loon per uur')}}</label>
-			<div class="form-element-container">
+			<div class="form-element form-element-container">
 				<span class="wage">
 					{{ Form::text('salary', null, array('id' => 'salary', 'area-required' => 'true', 'data-validation-type' => 'salary', 'placeholder' => Lang::get('rekentool-home.Loon per uur'))) }}
 				</span>
+				<span class="error-message"></span>
 			</div>
-			<span class="error-message"></span>
 		</p>
 		{{ Form::submit('Berekenen') }}
 	</section>
