@@ -3,21 +3,33 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Loontool</title>
-	<style type="text/css">
-		table{border-collapse: collapse;}
-		td{
-			padding: 10px 10px;
-			text-align: center;
-			border:1px solid green;
-		}
-
-		input{
-			margin-top: 5px;
-			margin-bottom: 5px;
-			padding:10px 10px;
-		}
-	</style>
+	
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+   	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+   	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700' rel='stylesheet' type='text/css'>
+	
 	<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
 	<script src="assets/js/main.js"></script>
 </head>
 <body>
+
+<header>
+	<div class="container">
+		<div class="utilities">
+			<div class="entypo info"></div> <a href="#">Informatie</a>
+			<div class="entypo text-doc"></div> <a href="#">Disclaimer</a>
+		</div>
+	
+		<div id="logo">
+			<a href="#">Wijverdienenmeer.nl</a>
+		</div>
+	
+		<div class="language">
+			<i class="NL"></i>
+			<i class="PL"></i>
+			<i class="DE"></i>
+			<i class="GRB"></i>
+		</div>
+	</div>
+</header>
+<div id="bigfoto"></div>

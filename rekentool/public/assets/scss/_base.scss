@@ -1,0 +1,47 @@
+/*---------------------------*/
+/* Basic colors				*/
+/*-------------------------*/
+
+$primary: #37afd8;
+$secondary: #2a89aa;
+$tertiary: #f6f6f6;
+$fourth: #bcbcbc;
+
+$border: #d4d4d4;
+$text: #7f7f7f;
+
+$uitslag: #2a89aa;
+
+/*---------------------------*/
+/* Basic width 				*/
+/*-------------------------*/
+
+$width: 1280px;
+
+.container{
+	width: $width;
+	margin: 0 auto;
+}
+
+#container{
+	width: 750px;
+	position: absolute;
+	left: 50%;
+	margin-left: -246px;
+	z-index: 1px;
+	margin-top: -250px;
+
+}
+
+$one_third: 33.1%;
+
+
+$pacifico: 'Pacifico', sans-serif;
+$ssp: 'Source Sans Pro', sans-serif;
+
+
+@media all and (min-width : 0px) and (max-width: 1280px){
+	.container{
+		width: 100%;
+	}
+}

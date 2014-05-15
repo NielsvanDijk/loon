@@ -3,9 +3,9 @@ jQuery(document).ready(function($){
     /*
      * Single field validation
      */
-    $('.loon-form').find('[area-required="true"]').on('blur', function() {
+    $('#calculation').find('[area-required="true"]').on('blur', function() {
         var that    = $(this),
-            field   = that.closest('.form-field'),
+            field   = that.closest('.form-element'),
             value   = that.val(),
             error   = false;
 
@@ -21,7 +21,7 @@ jQuery(document).ready(function($){
             break;
 
             case 'date':
-                message = 'no valid date';
+                message = 'No valid date';
             break; 
 
             case 'cao':
@@ -35,9 +35,10 @@ jQuery(document).ready(function($){
 
         // Show errors
         if( error ){
-            field.find('.error').hide();
+            field.find('.error').remove();
             field.addClass('has-error');
             field.find('.error-message').append('<p class="error">' + message + '</p>');
+            setTimeout('$(\'p.error\').slideUp(\'normal\',function(){$(this).remove()})',5000);
         }
         else{
             field.removeClass('has-error');
@@ -48,11 +49,13 @@ jQuery(document).ready(function($){
         var input_value = 'value-' + $(this).data('validation-type');
 
         if( !error ){
-            $('.'+input_value).remove();
-            $('#real-time-data').append('<span class="real-time-value ' + input_value + '">' + value + '</span>');
+            $('.'+input_value).empty();
+            $('.'+input_value).text(value);
         }
         else{
-            $('.'+input_value).remove();
+            $('.'+input_value).empty();
         }
     });
+
+
 });

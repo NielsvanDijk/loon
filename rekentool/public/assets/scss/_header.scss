@@ -1,0 +1,59 @@
+header{
+	width: 100%;
+	height: 85px;
+	display: block;
+	
+	.utilities{
+		height: 85px;
+		width: $one_third;
+		display: inline-block;
+		vertical-align: top;
+		@include box-sizing(border-box);
+		padding: 33px 0px 0px 15px;
+		
+		.entypo{
+			color: $fourth;
+			font-size: 24px;
+			display: inline-block;
+			margin: 0 5px;
+		}
+
+		a{
+			color: $fourth;
+			font-size: 14px;
+			font-weight: 400;
+			text-decoration: none;
+
+			&:hover{
+				color: $primary;
+			}
+		}
+
+	}
+
+	#logo{
+		
+		font-family: $pacifico;
+		width: $one_third;
+		
+		display: inline-block;
+		vertical-align: top;
+
+		text-align: center;
+		
+		a{
+			font-size: 31px;
+			padding: 13px 0 0 0;
+			color: $primary;
+			display: block;
+			text-decoration: none;
+			@include box-sizing(border-box);
+		}
+	}
+
+	.language{
+		width: $one_third;
+		display: inline-block;
+		height: 85px;
+	}
+}

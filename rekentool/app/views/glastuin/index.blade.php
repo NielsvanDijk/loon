@@ -1,48 +1,40 @@
 @include('partials.header')
-
-<!-- Haal alle database gegevens op -->
-
-<!-- <table>
-<thead>
-	<tr><td colspan="4"><b>Hier staat alle gegevens van uit de database!</b></td></tr>
-	<tr>
-		<td>Leeftijd</td>
-		<td>Schaal</td>
-		<td>Salaris</td>
-		<td>CAO</td>
-	</tr>
-</thead>
-@foreach($salaries as $s)
-	<tr>	
-		<td>{{$s->age}}</td>
-		<td>{{$s->catagory}}</td>
-		<td>{{$s->value}}</td>
-		
-	</tr>
-@endforeach
-</table> -->
-
-<h1>Glas en Tuinbouw</h1>
-<div class="loon-form">
-	<p class="form-field">
-		<label for="caos">{{Lang::get('rekentool-home.Selecteer CAO')}}</label>
-		{{ Form::select('caos', $caos , Input::old('caos'), array('id' => 'caos', 'area-required' => 'true', 'data-validation-type' => 'cao')) }}
-	</p>
-	<p class="form-field">
-		<label for="birthday">{{Lang::get('rekentool-home.Geboorte datum')}}</label>
-		{{ Form::input('date', 'birthday', null, array('id' => 'birthday', 'area-required' => 'true', 'data-validation-type' => 'date')) }}
-		<span class="error-message"></span>
-	</p>
-	<p class="form-field">
-		<label for="salary">{{Lang::get('rekentool-home.Loon per uur')}}</label>
-		{{ Form::text('salary', null, array('id' => 'salary', 'area-required' => 'true', 'data-validation-type' => 'salary', 'placeholder' => Lang::get('rekentool-home.Loon per uur'))) }}
-		<span class="error-message"></span>
-	</p>
-	{{ Form::submit('Berekenen') }}
+<div id="container">
+	<section id="calculation">
+		<p class="form-element">
+			<label for="birthday">{{Lang::get('rekentool-home.Geboorte datum')}}</label>
+			{{ Form::input('date', 'birthday', null, array('id' => 'birthday', 'area-required' => 'true', 'data-validation-type' => 'date')) }}
+			<span class="error-message"></span>
+		</p>
+		<p class="form-element">
+			<label for="caos">{{Lang::get('rekentool-home.Selecteer CAO')}}</label>
+			{{ Form::select('caos', $caos , Input::old('caos'), array('id' => 'caos', 'area-required' => 'true', 'data-validation-type' => 'cao')) }}
+		</p>
+		<p class="form-element">
+			<label for="salary">{{Lang::get('rekentool-home.Loon per uur')}}</label>
+			<div class="form-element-container">
+				<span class="wage">
+					{{ Form::text('salary', null, array('id' => 'salary', 'area-required' => 'true', 'data-validation-type' => 'salary', 'placeholder' => Lang::get('rekentool-home.Loon per uur'))) }}
+				</span>
+			</div>
+			<span class="error-message"></span>
+		</p>
+		{{ Form::submit('Berekenen') }}
+	</section>
+	<section id="uitslag">
+		<div id="real-time-data">
+			<span>Geboorte datum:</span>
+			<p class="value-date"></p>
+			<span>CAO datum:</span>
+			<p class="value-cao"></p>
+			<span>Loon per uur:</span>
+			<p class="value-salary"></p>
+		</div>
+		<div id="result"></div>	
+	</section>
 </div>
-<div id="result"></div>
-<div id="validation-errors"></div>
-<div id="real-time-data"></div>
+
+<!-- <div id="validation-errors"></div> -->
 
 <script>
 $( function() {
@@ -65,11 +57,11 @@ $( function() {
 				if(data.success == true){
 					var diff = data.difference
 					if( diff > 0 ) {
-						$( '#result' ).text( 'Je verdient ' + diff + ' te veel!' );
+						$( '#result' ).append( '<h3>Je verdient<span>€ ' + diff + '</span>te veel!</h3>' );
 					} else if( diff < 0 ) {
-						$( '#result' ).text( 'Je verdient ' + (diff * -1)  + ' te weinig!' );
+						$( '#result' ).append( '<h3>Je verdient<span>€ ' + (diff * -1)  + '</span>te weinig!</h3>' );
 					} else {
-						$( '#result' ).text( 'Je verdient precies genoeg!' );
+						$( '#result' ).append( '<h3>Je verdient precies genoeg!</h3>' );
 					}
 				} else{
 					var errors = data.errors;

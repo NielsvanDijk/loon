@@ -1,0 +1,81 @@
+#bigfoto{
+	width: 100%;
+	height: 400px;
+	background: url(../images/bigfoto.png) center center;
+	background-size: cover;
+}
+
+#calculation{
+	width: 482px;
+	height: auto;
+	padding: 25px 30px 40px 30px;
+	background: $tertiary;
+	display: inline-block;
+	vertical-align: top;
+
+	@include box-sizing(border-box);
+
+	label{
+		font-size: 16px;
+		color: $text;
+		font-weight: 300;
+		width: 100%;
+		display: block;
+		margin-bottom: 13px;
+		margin-top: 15px;
+	}
+}
+
+#uitslag{
+	width: 250px;
+	min-height: 100px;
+	margin-left: 15px;
+	display: inline-block;
+	vertical-align: top;
+	background: $primary;
+	padding: 15px 15px 25px 15px;
+	@include box-sizing(border-box);
+
+
+	span{
+		width: 100%;
+		color: $uitslag;
+		font-style: italic;
+		font-weight: 600;
+		@include box-sizing(border-box);
+		letter-spacing: -1px;
+		display: block;
+		margin-top: 10px;
+		font-size: 14px;
+		padding: 0px 0px 0px 15px;
+	}
+
+	p{
+		font-size: 18px;
+		color: WHITE;
+		font-weight: 400;
+		margin: 7px 0 0 0;
+		padding: 0px 0px 10px 15px;
+		@include box-sizing(border-box);
+		border-bottom: 1px solid #9ec7d5;
+	}
+
+	h3{
+		font-size: 14px;
+		color: WHITE;
+		text-align: center;
+		margin: 0;
+		font-weight: 400;
+		display: inline-block;
+
+		span{
+			font-weight: 600;
+			display: inline-block;
+			width: auto;
+			padding: 0px 7px;
+			font-size: 28px;
+			color: WHITE;
+			font-style: normal;
+		}
+	}
+}

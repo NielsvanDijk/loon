@@ -1,0 +1,12 @@
+.error-message{
+	p{
+		&.error{
+			background: rgba($primary,1);
+			color: white;
+			position: relative;
+			@include box-sizing(border-box);
+			padding: 19px;
+			width: 386px;
+		}
+	}
+}
