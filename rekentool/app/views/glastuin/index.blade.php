@@ -26,7 +26,7 @@
 <div class="loon-form">
 	<p class="form-field">
 		<label for="caos">{{Lang::get('rekentool-home.Selecteer CAO')}}</label>
-		{{ Form::select('caos', $caos , Input::old('caos'), array('id' => 'caos')) }}
+		{{ Form::select('caos', $caos , Input::old('caos'), array('id' => 'caos', 'area-required' => 'true', 'data-validation-type' => 'cao')) }}
 	</p>
 	<p class="form-field">
 		<label for="birthday">{{Lang::get('rekentool-home.Geboorte datum')}}</label>
@@ -42,6 +42,7 @@
 </div>
 <div id="result"></div>
 <div id="validation-errors"></div>
+<div id="real-time-data"></div>
 
 <script>
 $( function() {

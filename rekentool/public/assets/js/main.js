@@ -24,11 +24,16 @@ jQuery(document).ready(function($){
                 message = 'no valid date';
             break; 
 
+            case 'cao':
+                value = $('#caos option:selected').text();
+            break; 
+
             default:
                 if( value == '' )
                     error = true;
         }
 
+        // Show errors
         if( error ){
             field.find('.error').hide();
             field.addClass('has-error');
@@ -37,6 +42,17 @@ jQuery(document).ready(function($){
         else{
             field.removeClass('has-error');
             field.find('.error').hide();
+        }
+
+        // Real time update
+        var input_value = 'value-' + $(this).data('validation-type');
+
+        if( !error ){
+            $('.'+input_value).remove();
+            $('#real-time-data').append('<span class="real-time-value ' + input_value + '">' + value + '</span>');
+        }
+        else{
+            $('.'+input_value).remove();
         }
     });
 });
