@@ -37,6 +37,7 @@
 <!-- <div id="validation-errors"></div> -->
 
 <script>
+
 $( function() {
 	$( 'input[type="submit"]' ).on( 'click', function( e ) {
 		e.preventDefault();

@@ -211,6 +211,7 @@ input[type="submit"] {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background: #37afd8;
+  outline: none;
   border: none;
   font-size: 22px;
   color: WHITE !important;
@@ -220,6 +221,7 @@ input[type="submit"] {
   border-bottom: 3px solid #2a89aa;
   left: 0;
   margin-top: 40px;
+  padding: 14px 0px;
 }
 
 .error-message p.error {
