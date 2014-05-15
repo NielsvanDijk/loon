@@ -1,0 +1,364 @@
+/* Stylesheet for Rekentool. */
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----- Basic overrides and resets -------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+
+@import url('reset.css');
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----- Stijlen: General ------------------------------------------------------------------ */
+/* ----------------------------------------------------------------------------------------- */
+
+html, body {
+	min-height: 100%;
+}
+
+body {
+	font-family: 'Source Sans Pro', Arial, Verdana, sans-serif;
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 26px;
+	font-weight: 400;
+	background: url('../images/background.jpg') fixed no-repeat center center;
+	background-size: cover;
+}
+
+h1 {
+	font-family: 'Sanchez', Arial, Verdana, sans-serif;
+	font-size: 24px;
+	line-height: 32px;
+	font-weight: 400;
+}
+
+h2 {
+	font-family: 'Sanchez', Arial, Verdana, sans-serif;
+	font-size: 22px;
+	line-height: 30px;
+	font-weight: 400;
+}
+
+h3 {
+	font-family: 'Sanchez', Arial, Verdana, sans-serif;
+	font-size: 18px;
+	line-height: 26px;
+	font-weight: 400;
+}
+
+h4 {
+	font-family: 'Sanchez', Arial, Verdana, sans-serif;
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: 400;
+}
+
+h4, h5 {
+	font-family: 'Sanchez', Arial, Verdana, sans-serif;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 400;
+}
+
+h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: #333333;
+	text-decoration: none;
+}
+
+h2 a:hover, h3 a:hover,
+h4 a:hover, h5 a:hover, h6 a:hover {
+	text-decoration: underline;
+}
+
+a {
+	color: #ffffff;
+	text-decoration: underline;
+	-webkit-transition: all 250ms ease-out;
+			transition: all 250ms ease-out;
+}
+
+a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+button {
+	-webkit-transition: all 250ms ease-out;
+			transition: all 250ms ease-out;
+}
+
+p {
+	font-style: italic;
+}
+
+:focus, :hover, :active { outline: 0; }
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----- Landings page --------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+
+.landings-page {
+	width: 100%;
+	max-width: 470px;
+	padding: 15px;
+	margin: 30px auto;
+}
+
+.landings-page .landings-page-inner {
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+}
+
+.landings-page .landings-page-inner .contact {
+	font-style: normal;
+	opacity: 0.7;
+	filter:	alpha(opacity=70);
+}
+
+.languages {
+	width: 100%;
+	padding: 0 15px;
+	margin: 0;
+	list-style-type: none;
+	text-align: right;
+	background: #6092a4;
+	border-bottom: 2px solid #5c8492;
+}
+
+.languages li {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+.languages li a {
+	display: inline-block;
+	width: 100%;
+	padding: 15px;
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 22px;
+	text-decoration: none;
+	text-align: center;	
+}
+
+.languages .active a,
+.languages li a:hover {
+	background: #488ca4;
+}
+
+.banners {
+	padding: 0 15px;
+	margin: 0;
+	list-style-type: none;
+	text-align: center;
+}
+
+.banners li {
+	display: inline-block;
+	padding: 0;
+	margin: 0 20px;
+}
+
+.banners li a {
+	display: inline-block;
+	opacity: 0.4;
+	filter:	alpha(opacity=40);
+}
+
+.banners li a:hover {
+	opacity: 0.7;
+	filter:	alpha(opacity=70);
+}
+
+.landings-page form .form-element .form-element-container input,
+.landings-page form .form-element .form-element-container select,
+.landings-page form .form-element .form-element-container textarea {
+	width: 100%;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----- Forms ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+
+input, textarea, select, button, .button {
+	width: 100%;
+	height: 52px;
+	padding: 15px 20px;
+	font-family: 'Source Sans Pro', Arial, Verdana, sans-serif;
+	color: #7f7f7f;
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: 400;
+	background: #ffffff;
+	border: 1px solid #d4d4d4;
+	border-bottom-width: 3px;
+}
+
+select {
+	padding: 13px 10px;
+}
+
+textarea {
+	height: 150px;
+}
+
+button, .button {
+	display: block;
+	width: 100%;
+	padding: 4px 10px;
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	background: #37afd8;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	border-color: transparent;
+	border-bottom-color: #2a89aa;
+}
+
+button:hover, .button:hover {
+	text-decoration: underline;
+}
+
+.form-error-desc,
+.form-succes-desc {
+	width: 100%;
+	padding: 4px 10px;
+	font-size: 12px;
+	font-style: italic;
+	text-align: center;
+}
+
+.form-error-desc {
+	color: #e4bc00;
+	background: #fff9cd;
+	border: 2px solid #c1304b;
+}
+
+.form-succes-desc {
+	color: #209e26;
+	background: #8fd893;
+	border: 1px solid #209e26;
+}
+
+form:after {
+	display: block;
+    clear: both;
+    content: ".";
+    height: 0;
+    overflow: hidden;
+}
+
+form .form-element {
+	position: relative;
+	margin: 0 0 5px;
+}
+
+form .form-element:after {
+	display: block;
+    clear: both;
+    content: ".";
+    height: 0;
+    overflow: hidden;
+}
+
+form .form-element.form-element-hide {
+	display: none;
+}
+
+form .form-element.form-element-last {
+	float: left;
+	width: 75%;
+}
+
+form .form-element.form-element-button {
+	float: right;
+	width: 25%;
+	padding: 0 0 0 5px;
+}
+
+form .form-element .error-desc {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: 4px 10px;
+	margin: 2px 0 0;
+	color: #ffffff;
+	font-size: 12px;
+	background: #d83755;
+	text-align: left;
+	border: 2px solid #c1304b;
+}
+
+form .form-element .error-desc a {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	display: block;
+	width: 11px;
+	height: 11px;
+	overflow: hidden;
+	background: url('../images/form-error-close.png') no-repeat 0 0;
+}
+
+form .form-element.error input,
+form .form-element.error select,
+form .form-element.error textarea {
+	background: #ffffff url('../images/form-error.png') no-repeat right center;
+}
+
+form .form-element > label {
+	position: absolute;
+	display: inline-block;
+	width: 175px;
+	font-weight: bold;
+	padding: 6px 15px 6px 0;
+}
+
+form.form-no-labels .form-element > label {
+	display: none;
+}
+
+form .form-element .form-element-container {
+	float: right;
+	width: 100%;
+	padding: 0 0 0 175px;
+}
+
+form.form-no-labels .form-element .form-element-container {
+	padding: 0;
+}
+
+form .form-element .form-element-container input,
+form .form-element .form-element-container select,
+form .form-element .form-element-container textarea {
+	width: 75%;
+}
+
+form .form-element.form-element-last .form-element-container input,
+form .form-element.form-element-last .form-element-container select,
+form .form-element.form-element-last .form-element-container textarea {
+	width: 100%;
+}
+
+form .form-element.form-element-button .form-element-container {
+	padding: 0;
+}
+
+form .form-element .form-element-container label {
+	display: inline-block;
+	padding: 6px 15px 6px 0;
+}
+
+form .form-element .form-element-container label input {
+	margin: 5px 8px 4px 0;
+}
+
+form .form-element.form-element-button button,
+form .form-element.form-element-button .button {
+	width: 100%;
+}
