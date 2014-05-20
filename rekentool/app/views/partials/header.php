@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Loontool</title>
+	<title>Wijverdienenmeer.nl</title>
 	
 	<link href="assets/css/style.css" rel="stylesheet" type="text/css" />
    	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>

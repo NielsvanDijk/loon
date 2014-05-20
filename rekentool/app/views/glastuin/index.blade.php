@@ -1,5 +1,9 @@
 @include('partials.header')
 <div id="container">
+	<section id="intro">
+		<h1>Wat doet dit?</h1>
+		<p>Clutter and often about bringing order simply to the way of course, so much of design process show respect towards the leading edge in colour makes a word that's an exploration of anything other than what products become in efficiency.</p>
+	</section>
 	<section id="calculation">
 		<p class="form-element">
 			<label for="birthday">{{Lang::get('rekentool-home.Geboorte datum')}}</label>
@@ -19,7 +23,7 @@
 				<span class="error-message"></span>
 			</div>
 		</p>
-		{{ Form::submit('Berekenen') }}
+		{{ Form::submit('Berekenen') }}		
 	</section>
 	<section id="uitslag">
 		<div id="real-time-data">
@@ -33,6 +37,9 @@
 		<div id="result"></div>	
 	</section>
 </div>
+@include('partials.footer')
+
+
 
 <!-- <div id="validation-errors"></div> -->
 

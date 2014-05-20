@@ -44,7 +44,7 @@ class LoonController extends \BaseController {
 		} else{
 			return Response::JSON( [
 				'success'	=> false,
-				'errors' 	=> 'no results found'
+				'errors' 	=> 'No results found'
 			] );
 		}
 	}

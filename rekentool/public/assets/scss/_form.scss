@@ -27,8 +27,8 @@ span{
 			content: "€";
 			font-weight: 400 !important;
 			font-size: 20px;
-		    position: absolute;
-		    left: 45px;
+		    position: relative;
+		    left: -373px;
 			color: #7f7f7f !important;
 			margin: 13px 0 0 0;
 		}
@@ -57,7 +57,7 @@ input[type="submit"]{
 	width: 482px;
 	position: absolute;
 	border-bottom: 3px solid $secondary;
-	left: 0;
 	margin-top: 40px;
+	margin-left: -29px;
 	padding: 14px 0px;
 }
