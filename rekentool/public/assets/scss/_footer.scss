@@ -1,0 +1,10 @@
+footer{
+	height: 80px;
+	width: 100%;
+	background: $primary;
+	text-align: center;
+	color:WHITE;
+	padding: 35px 0 0 0;
+	font-size: 14px;
+	@include box-sizing(border-box);
+}
