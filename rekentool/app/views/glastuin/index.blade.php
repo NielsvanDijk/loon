@@ -2,12 +2,12 @@
 
 <div id="container">
 	<section id="intro">
-		<h1>Wat doet dit?</h1>
+		<h1>{{Lang::get('rekentool-home.Wat doet dit?')}}</h1>
 		<p>Clutter and often about bringing order simply to the way of course, so much of design process show respect towards the leading edge in colour makes a word that's an exploration of anything other than what products become in efficiency.</p>
 	</section>
 	<section id="calculation">
 		<p class="form-element">
-			<label for="birthday">{{Lang::get('rekentool-home.Geboorte datum')}}</label>
+			<label for="birthday">{{Lang::get('rekentool-home.Geboortedatum')}}</label>
 			{{ Form::input('date', 'birthday', null, array('id' => 'birthday', 'area-required' => 'true', 'data-validation-type' => 'date')) }}
 			<span class="error-message"></span>
 		</p>
@@ -24,15 +24,15 @@
 				<span class="error-message"></span>
 			</div>
 		</p>
-		{{ Form::submit('Berekenen') }}		
+		{{ Form::submit(Lang::get('rekentool-home.Berekenen')) }}		
 	</section>
 	<section id="uitslag">
 		<div id="real-time-data">
-			<span>Geboorte datum:</span>
+			<span>{{Lang::get('rekentool-home.Geboortedatum')}}:</span>
 			<p class="value-date"></p>
-			<span>CAO datum:</span>
+			<span>{{Lang::get('rekentool-home.CAO')}}:</span>
 			<p class="value-cao"></p>
-			<span>Loon per uur:</span>
+			<span>{{Lang::get('rekentool-home.Loon per uur')}}:</span>
 			<p class="value-salary"></p>
 		</div>
 		<div id="result"></div>	

@@ -16,18 +16,18 @@
 <header>
 	<div class="container">
 		<div class="utilities">
-			<div class="entypo info"></div> <a href="#">Informatie</a>
-			<div class="entypo text-doc"></div> <a href="#">Disclaimer</a>
+			<div class="entypo info"></div> <a href="#">{{Lang::get('rekentool-home.Informatie')}}</a>
+			<div class="entypo text-doc"></div> <a href="#">{{Lang::get('rekentool-home.Disclaimer')}}</a>
 		</div>
 	
 		<div id="logo">
-			<a href="#">Wijverdienenmeer.nl</a>
+			<a href="#">{{Lang::get('rekentool-home.Wijverdienenmeer.nl')}}</a>
 		</div>
 	
 		<div class="language">
 
 			{{ Form::open(['action' => 'LoonController@postChangeLanguage']) }}
-			    {{Form::select('language',['nl'=>'nl','po'=>'po'], @$language,['onchange'=>'submit()'])}}
+			    {{Form::select('language',['NL'=>'Nederlands','PO'=>'Polski','EN'=>'English','DE'=>'Deutsch'], @$language,['onchange'=>'submit()'])}}
 			{{ Form::close()}}
 
 

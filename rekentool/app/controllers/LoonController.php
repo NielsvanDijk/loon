@@ -5,7 +5,7 @@ class LoonController extends BaseController {
 	public function postChangeLanguage() 
     {
         $rules = [
-        'language' => 'in:nl,po' //list of supported languages of your application.
+        'language' => 'in:nl,po,en,de' //list of supported languages of your application.
         ];
 
         $language = Input::get('language'); //lang is name of form select field.
