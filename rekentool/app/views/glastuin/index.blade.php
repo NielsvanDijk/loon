@@ -1,4 +1,5 @@
 @include('partials.header')
+
 <div id="container">
 	<section id="intro">
 		<h1>Wat doet dit?</h1>

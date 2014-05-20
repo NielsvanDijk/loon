@@ -10,10 +10,10 @@
 | application. Here you may also register your custom route filters.
 |
 */
-
 App::before(function($request)
 {
-	//
+	$language = Session::get('language','nl');
+	App::setLocale($language);
 });
 
 

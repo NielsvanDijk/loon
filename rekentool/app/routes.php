@@ -13,9 +13,14 @@
 
 Route::resource('/', 'LoonController');
 
-//Route::get( '/calculate', [ 'as' => 'loon.calculate', 'uses' => 'LoonController@calculate' ] );
-
 Route::get('calculate', array(
     'uses' => 'LoonController@calculate',
     'as' => 'loon.calculate'
 ));
+
+Route::controller('/', 'LoonController');
+
+// Route::get('/', array(
+//     'uses' =>'LoonController@postChangeLanguage',
+//     'as' => 'loon.language'
+// ));

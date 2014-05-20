@@ -1,6 +1,28 @@
 <?php
 
-class LoonController extends \BaseController {
+class LoonController extends BaseController {
+
+	public function postChangeLanguage() 
+    {
+        $rules = [
+        'language' => 'in:nl,po' //list of supported languages of your application.
+        ];
+
+        $language = Input::get('language'); //lang is name of form select field.
+		
+		// var_dump($language);die;
+        
+        $validator = Validator::make(compact($language),$rules);
+
+        if($validator->passes())
+        {
+            Session::put('language',$language);
+            App::setLocale($language);
+            return Redirect::back();
+        }
+        else
+        { return 'test'; }
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -14,9 +36,11 @@ class LoonController extends \BaseController {
 
 		return View::make('glastuin.index')
 			->with('salaries', $salaries)
-			->with('caos', $caos);
-	}
+			->with('caos', $caos)
+			->with('language',Session::get('language'));
 
+
+	}
 
 	public function calculate()
 	{
