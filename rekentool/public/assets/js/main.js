@@ -7,6 +7,7 @@ jQuery(document).ready(function($){
     $('#calculation').find('[area-required="true"]').on('blur change', function() {
         var that    = $(this),
             field   = that.closest('.form-element'),
+            message = '',
             value   = that.val(),
             error   = false;
 
