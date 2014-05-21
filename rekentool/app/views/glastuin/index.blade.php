@@ -66,11 +66,11 @@ $( function() {
 				if(data.success == true){
 					var diff = data.difference
 					if( diff > 0 ) {
-						$( '#result' ).append( '<h3>Je verdient<span>€ ' + diff + '</span>te veel!</h3>' );
+						$( '#result' ).append( '<h3>{{Lang::get("rekentool-home.Je verdient")}}<span>€ ' + diff + '</span>{{Lang::get("rekentool-home.te veel")}}!</h3>' );
 					} else if( diff < 0 ) {
-						$( '#result' ).append( '<h3>Je verdient<span>€ ' + (diff * -1)  + '</span>te weinig!</h3>' );
+						$( '#result' ).append( '<h3>{{Lang::get("rekentool-home.Je verdient")}}<span>€ ' + (diff * -1)  + '</span>{{Lang::get("rekentool-home.te weinig")}}!</h3>' );
 					} else {
-						$( '#result' ).append( '<h3>Je verdient precies genoeg!</h3>' );
+						$( '#result' ).append( '<h3>{{Lang::get("rekentool-home.Je verdient precies genoeg")}}!</h3>' );
 					}
 				} else{
 					var errors = data.errors;

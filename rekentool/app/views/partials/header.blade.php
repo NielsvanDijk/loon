@@ -27,14 +27,14 @@
 		<div class="language">
 
 			{{ Form::open(['action' => 'LoonController@postChangeLanguage']) }}
-			    {{Form::select('language',['NL'=>'Nederlands','PO'=>'Polski','EN'=>'English','DE'=>'Deutsch'], @$language,['onchange'=>'submit()'])}}
+			{{ Form::select('language',['NL'=>'Nederlands','PO'=>'Polski','EN'=>'English','DE'=>'Deutsch'], @$language,['onchange'=>'submit()'])}}
+
+			<a href=""><i class="NL"></i></a>
+			<a href=""><i class="PL"></i></a>
+			<a href=""><i class="DE"></i></a>
+			<a href=""><i class="EN"></i></a>
+
 			{{ Form::close()}}
-
-
-			<i class="NL"></i>
-			<i class="PL"></i>
-			<i class="DE"></i>
-			<i class="GRB"></i>
 		</div>
 	</div>
 </header>

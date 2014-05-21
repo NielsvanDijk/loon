@@ -55,5 +55,31 @@ header{
 		width: $one_third;
 		display: inline-block;
 		height: 85px;
+
+		i{
+			width: 24px;
+			height: 17px;
+			display: inline-block;
+			margin: 0;
+			padding: 34px 12px;
+			background-repeat: no-repeat;
+			
+			&.NL
+			{
+				background: url('../img/flags/nl.png') no-repeat center;
+			}
+			&.PL
+			{
+				background: url('../img/flags/po.png') no-repeat center;
+			}
+			&.EN
+			{
+				background: url('../img/flags/en.png') no-repeat center;
+			}
+			&.DE
+			{
+				background: url('../img/flags/de.png') no-repeat center;
+			}
+		}
 	}
 }

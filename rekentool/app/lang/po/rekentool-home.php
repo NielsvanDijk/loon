@@ -14,6 +14,11 @@ return array(
 
 	'Berekenen'			  => 'obliczać',
 
+	'Je verdient'                => 'Zasługujesz',
+	'te veel'                    => 'do wiele',
+	'te weinig'                  => 'niedostateczny',
+	'Je verdient precies genoeg' => 'zasługujesz tyle',
+
 	'Gerealiseerd door de NHL'  => 'Powered by NHL',
 );
 

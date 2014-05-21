@@ -12,7 +12,12 @@ return array(
 	'Selecteer CAO' => 'Selecteer CAO',
 	'CAO'           => 'CAO',
 	'Wat doet dit?' => 'Wat doet dit?',
-	'Berekenen'     => 'Berekenen',
+	'Berekenen'     => 'Calculate',
+
+	'Je verdient'                => '',
+	'te veel'                    => '',
+	'te weinig'                  => '',
+	'Je verdient precies genoeg' => '',
 
 	//Footer.blade.php
 	'Gerealiseerd door de NHL'  => 'Gerealiseerd door de NHL'

@@ -20,7 +20,9 @@ class LoonController extends BaseController {
             App::setLocale($language);
             return Redirect::back();
         }
+
         else
+        
         { return 'test'; }
     }
 
@@ -68,7 +70,7 @@ class LoonController extends BaseController {
 		} else{
 			return Response::JSON( [
 				'success'	=> false,
-				'errors' 	=> 'No results found'
+				'errors' 	=> Lang::get('calculation.Error')
 			] );
 		}
 	}

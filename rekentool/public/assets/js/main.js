@@ -3,6 +3,7 @@ jQuery(document).ready(function($){
     /*
      * Single field validation
      */
+     
     $('#calculation').find('[area-required="true"]').on('blur', function() {
         var that    = $(this),
             field   = that.closest('.form-element'),
