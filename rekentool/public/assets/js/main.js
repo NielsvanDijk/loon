@@ -4,7 +4,7 @@ jQuery(document).ready(function($){
      * Single field validation
      */
      
-    $('#calculation').find('[area-required="true"]').on('blur', function() {
+    $('#calculation').find('[area-required="true"]').on('blur change', function() {
         var that    = $(this),
             field   = that.closest('.form-element'),
             value   = that.val(),
@@ -17,7 +17,9 @@ jQuery(document).ready(function($){
             case 'salary' :
                 value = value.replace(",", ".");
                 value = parseFloat(value).toFixed(2);
-                that.val(value);
+                if(!isNaN(value)) {
+                    that.val(value);
+                }
                 var re = /^\d+(?:\.\d\d?)?$/;
                 if( ! re.test( value ) )
                     error = true;
@@ -60,12 +62,4 @@ jQuery(document).ready(function($){
             $('.'+input_value).empty();
         }
     });
-
-    /*
-     * Specific updates
-     */
-
-
-
-
 });

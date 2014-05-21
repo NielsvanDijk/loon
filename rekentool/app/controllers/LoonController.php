@@ -33,7 +33,7 @@ class LoonController extends BaseController {
 	 */
 	public function index()
 	{
-		$caos = Caos::lists('name', 'id');
+		$caos = array('' => 'Select One') + Caos::lists('name', 'id');
 		$salaries = Salaries::all();
 
 		return View::make('glastuin.index')
