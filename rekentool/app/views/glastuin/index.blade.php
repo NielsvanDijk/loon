@@ -64,7 +64,7 @@ $( function() {
             },
 			success: function(data){ 
 				if(data.success == true){
-					var diff = data.difference
+					var diff = data.difference.toFixed(2);
 					if( diff > 0 ) {
 						$( '#result' ).append( '<h3>{{Lang::get("rekentool-home.Je verdient")}}<span>€ ' + diff + '</span>{{Lang::get("rekentool-home.te veel")}}!</h3>' );
 					} else if( diff < 0 ) {

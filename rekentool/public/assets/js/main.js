@@ -15,6 +15,9 @@ jQuery(document).ready(function($){
 
         switch( $(this).data('validation-type') ) { 
             case 'salary' :
+                value = value.replace(",", ".");
+                value = parseFloat(value).toFixed(2);
+                that.val(value);
                 var re = /^\d+(?:\.\d\d?)?$/;
                 if( ! re.test( value ) )
                     error = true;
@@ -36,14 +39,14 @@ jQuery(document).ready(function($){
 
         // Show errors
         if( error ){
-            field.find('.error').slideUp('slow').remove();
+            field.find('.error').remove();
             //field.addClass('has-error');
             field.find('.error-message').append('<p class="error">' + message + '</p>');
             //setTimeout('$(\'p.error\').slideUp(\'normal\',function(){$(this).remove()})',5000);
         }
         else{
             //field.removeClass('has-error');
-            field.find('.error').slideUp('slow').remove();
+            field.find('.error').remove();
         }
 
         // Real time update
@@ -57,6 +60,12 @@ jQuery(document).ready(function($){
             $('.'+input_value).empty();
         }
     });
+
+    /*
+     * Specific updates
+     */
+
+
 
 
 });
