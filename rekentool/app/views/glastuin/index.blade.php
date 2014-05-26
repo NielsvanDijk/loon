@@ -24,6 +24,15 @@
 				<span class="error-message"></span>
 			</div>
 		</p>
+		<p class="form-element">
+			<label for="years_of_service">{{Lang::get('rekentool-home.Dienstjaren')}}</label>
+			<div class="form-element form-element-container">
+				<span class="wage">
+					{{ Form::text('years_of_service', null, array('id' => 'years_of_service', 'area-required' => 'true', 'data-validation-type' => 'years_of_service', 'placeholder' => Lang::get('rekentool-home.Dienstjaren'))) }}
+				</span>
+				<span class="error-message"></span>
+			</div>
+		</p>
 		{{ Form::submit(Lang::get('rekentool-home.Berekenen')) }}		
 	</section>
 	<section id="uitslag">
@@ -34,6 +43,8 @@
 			<p class="value-cao"></p>
 			<span>{{Lang::get('rekentool-home.Loon per uur')}}:</span>
 			<p class="value-salary"></p>
+			<span>{{Lang::get('rekentool-home.Dienstjaren')}}:</span>
+			<p class="value-years_of_service"></p>
 		</div>
 		<div id="result"></div>	
 	</section>

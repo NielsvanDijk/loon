@@ -35,6 +35,10 @@ jQuery(document).ready(function($){
                 value = $('#caos option:selected').text();
             break; 
 
+            case 'years_of_service':
+                message = 'No valid number (example: 3)';
+            break;
+
             default:
                 if( value == '' )
                     error = true;

@@ -13,6 +13,7 @@ return array(
 	'CAO'           => 'CAO',
 	'Wat doet dit?' => 'Wat doet dit?',
 	'Berekenen'     => 'Berekenen',
+	'Dienstjaren'	=> 'Dienstjaren',
 
 	'Je verdient'                => '',
 	'te veel'                    => '',
