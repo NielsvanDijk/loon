@@ -14,10 +14,10 @@ return array(
 	'Wat doet dit?' => 'Wat doet dit?',
 	'Berekenen'     => 'Berekenen',
 
-	'Je verdient'                => '',
-	'te veel'                    => '',
-	'te weinig'                  => '',
-	'Je verdient precies genoeg' => '',
+	'Je verdient'                => 'Je verdient',
+	'te veel'                    => 'te veel',
+	'te weinig'                  => 'te weinig',
+	'Je verdient precies genoeg' => 'Je verdient precies genoeg',
 
 	//Footer.blade.php
 	'Gerealiseerd door de NHL'  => 'Gerealiseerd door de NHL'
