@@ -22,6 +22,33 @@
     width: 100%;
   }
 }
+/******** Mobile ********/
+@media all and (min-width: 0px) and (max-width: 768px) {
+  #container {
+    width: 100%;
+    padding: 0px 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  #container #intro, #container #calculation {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #container #intro input[type="text"], #container #intro select, #container #intro input, #container #calculation input[type="text"], #container #calculation select, #container #calculation input {
+    width: 90%;
+  }
+  #container #intro input[type="submit"], #container #calculation input[type="submit"] {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+  }
+  #container #uitslag {
+    display: none;
+  }
+}
 header {
   width: 100%;
   height: 85px;
@@ -37,12 +64,6 @@ header .utilities {
   box-sizing: border-box;
   padding: 33px 0px 0px 15px;
 }
-header .utilities .entypo {
-  color: #bcbcbc;
-  font-size: 24px;
-  display: inline-block;
-  margin: 0 5px;
-}
 header .utilities a {
   color: #bcbcbc;
   font-size: 14px;
@@ -50,6 +71,15 @@ header .utilities a {
   text-decoration: none;
 }
 header .utilities a:hover {
+  color: #37afd8;
+}
+header .utilities a .entypo {
+  color: #bcbcbc;
+  font-size: 24px;
+  display: inline-block;
+  margin: 0 5px;
+}
+header .utilities a .entypo:hover {
   color: #37afd8;
 }
 header #logo {
@@ -95,6 +125,14 @@ header .language i.DE {
   background: url("../img/flags/de.png") no-repeat center;
 }
 
+@media all and (min-width: 0px) and (max-width: 768px) {
+  header .utilities, header .language {
+    display: none;
+  }
+  header #logo {
+    width: 100%;
+  }
+}
 footer {
   height: 80px;
   width: 100%;

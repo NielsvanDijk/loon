@@ -10,13 +10,6 @@ header{
 		vertical-align: top;
 		@include box-sizing(border-box);
 		padding: 33px 0px 0px 15px;
-		
-		.entypo{
-			color: $fourth;
-			font-size: 24px;
-			display: inline-block;
-			margin: 0 5px;
-		}
 
 		a{
 			color: $fourth;
@@ -26,6 +19,17 @@ header{
 
 			&:hover{
 				color: $primary;
+			}
+
+			.entypo{
+				color: $fourth;
+				font-size: 24px;
+				display: inline-block;
+				margin: 0 5px;
+
+				&:hover{
+					color: $primary;
+				}
 			}
 		}
 
@@ -80,6 +84,17 @@ header{
 			{
 				background: url('../img/flags/de.png') no-repeat center;
 			}
+		}
+	}
+}
+
+@media all and (min-width : $mq-mobile-min) and (max-width: $mq-mobile-max){
+	header{
+		.utilities, .language{
+			display: none;
+		}
+		#logo{
+			width: 100%;
 		}
 	}
 }

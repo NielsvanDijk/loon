@@ -19,8 +19,3 @@ Route::get('calculate', array(
 ));
 
 Route::controller('/', 'LoonController');
-
-// Route::get('/', array(
-//     'uses' =>'LoonController@postChangeLanguage',
-//     'as' => 'loon.language'
-// ));

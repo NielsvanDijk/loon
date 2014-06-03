@@ -34,10 +34,9 @@ class LoonController extends BaseController {
 	public function index()
 	{
 		$caos = array('' => 'Select One') + Caos::lists('name', 'id');
-		$salaries = Salaries::all();
+		// $salaries = Salaries::all();
 
 		return View::make('glastuin.index')
-			->with('salaries', $salaries)
 			->with('caos', $caos)
 			->with('language',Session::get('language'));
 
@@ -48,31 +47,83 @@ class LoonController extends BaseController {
 	{
 		$input = Input::all();
 
-		$birthDay      	= $input['birthday'];
-		$birthDate     	= strtotime( $birthDay );
-		$currentSalary 	= (float)$input['salary'];
-		$age           	= date( 'Y' ) - date( 'Y', $birthDate );
-		$cao 			= $input['cao'];
+		$data = array(
+			'success'			=> false,
+			'caoID'				=> '',
+			'caoName'			=> '',
+			'age'				=> '',
+			'wage'				=> '',
+			'wageRounded'		=> '',
+			'difference'		=> '',
+			'differenceRounded'	=> ''
+		);
 
-		if( date( 'md', date( 'U', $birthDate ) ) > date( 'md' ) )
-			$age = $age - 1;
+		$age = date('Y') - date('Y', strtotime($input['birthday']));
 
-		$result = DB::table('salaries')->where('age', $age)->where('cao_id', $cao)->first();
+		if (!empty($input['birthday'])) {
+			$data = array_merge($data, array(
+				'age' => $age
+			));
 
-		if( !empty($result) ){
-			$minimumSalary = (float)$result->value;
-			return Response::JSON( [
-				'success'		=> true,
-				'age'			=> $age,
-				'difference' 	=> $currentSalary - $minimumSalary,
-				'cao'			=> $cao
-			] );
-		} else{
-			return Response::JSON( [
-				'success'	=> false,
-				'errors' 	=> Lang::get('calculation.Error')
-			] );
+			$caoResult = DB::table('caos')->where('id', $input['cao'])->first();
+
+			if (null !== $caoResult) {
+				$wageResult = DB::table('caos_wage')->where('cao_id', $caoResult->id)->where('age', $age)->first();
+
+				if (null === $wageResult) {
+					$wage = (float) $caoResult->wage;
+				} else {
+					$wage = (float) $caoResult->wage * (float) $wageResult->percent;
+				}
+
+				$difference = (float) $wage - (float) $input['salary'];
+
+				$data = array_merge($data, array(
+					'success'			=> true,
+					'caoID'				=> $caoResult->id,
+					'caoName'			=> $caoResult->name,
+					'wage'				=> $wage,
+					'wageRounded'		=> round($wage, 2),
+					'difference' 		=> $difference,
+					'differenceRounded'	=> round($difference, 2)
+				));
+			} else {
+				$data = array_merge($data, array(
+					'error'	=> 'No CAO selected'
+				));
+			}
+		} else {
+			$data = array_merge($data, array(
+				'error'	=> 'No birthday selected'
+			));
 		}
+
+		return Response::JSON($data);
+
+		//$birthDay      	= $input['birthday'];
+		//$birthDate     	= strtotime( $birthDay );
+		//$currentSalary 	= (float)$input['salary'];
+		//$age           	= date( 'Y' ) - date( 'Y', $birthDate );
+
+		// if( date( 'md', date( 'U', $birthDate ) ) > date( 'md' ) )
+		// 	$age = $age - 1;
+
+		// $result = DB::table('salaries')->where('age', $age)->where('cao_id', $input['cao'])->first();
+
+		// if( !empty($result) ){
+		// 	$minimumSalary = (float)$result->value;
+		// 	return Response::JSON( [
+		// 		'success'		=> true,
+		// 		'age'			=> $age,
+		// 		'difference' 	=> $currentSalary - $minimumSalary,
+		// 		'cao'			=> $input['cao']
+		// 	] );
+		// } else{
+		// 	return Response::JSON( [
+		// 		'success'	=> false,
+		// 		'errors' 	=> Lang::get('calculation.Error')
+		// 	] );
+		// }
 	}
 
 	/**

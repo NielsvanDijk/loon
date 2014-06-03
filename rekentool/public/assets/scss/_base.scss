@@ -16,6 +16,12 @@ $uitslag: #2a89aa;
 /* Basic width 				*/
 /*-------------------------*/
 
+$mq-tablet-min: 768px;
+$mq-tablet-max: 1024px;
+$mq-mobile-min: 0px;
+$mq-mobile-max: 768px;
+$mq-mobile-width: 100%;
+
 $width: 1280px;
 
 .container{
@@ -40,5 +46,37 @@ $ssp: 'Source Sans Pro', sans-serif;
 @media all and (min-width : 0px) and (max-width: 1280px){
 	.container{
 		width: 100%;
+	}
+}
+
+/******** Mobile ********/
+
+@media all and (min-width : $mq-mobile-min) and (max-width: $mq-mobile-max){
+	#container{
+		width: 100%;
+		padding: 0px 20px;
+		@include box-sizing(border-box);	
+
+		#intro, #calculation{
+			position: relative;
+			width: 100%;
+			margin-bottom: 20px;
+
+			input[type="text"],select,input{
+				width: 90%;
+			}
+
+			input[type="submit"]{
+				width: 100%;
+				left: 0;
+				right: 0;
+				margin-left: 0;
+
+			}
+		}
+
+		#uitslag{
+			display: none;
+		}
 	}
 }

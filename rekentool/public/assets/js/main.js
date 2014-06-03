@@ -1,10 +1,11 @@
-jQuery(document).ready(function($){
+$(document).ready(function($) {
+
 
     /*
      * Single field validation
      */
      
-    $('#calculation').find('[area-required="true"]').on('blur change', function() {
+    $('#calculation1').find('[area-required="true"]').on('blur change', function() {
         var that    = $(this),
             field   = that.closest('.form-element'),
             message = '',
@@ -59,12 +60,12 @@ jQuery(document).ready(function($){
         // Real time update
         var input_value = 'value-' + $(this).data('validation-type');
 
-        if( !error ){
-            $('.'+input_value).empty();
-            $('.'+input_value).text(value);
-        }
-        else{
-            $('.'+input_value).empty();
-        }
+        //if( !error ){
+        //    $('.'+input_value).empty();
+        //    $('.'+input_value).text(value);
+        //}
+        //else{
+        //    $('.'+input_value).empty();
+        //}
     });
 });

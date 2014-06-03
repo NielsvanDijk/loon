@@ -7,6 +7,8 @@ return array(
 	'Disclaimer'          => 'Algemene voorwaarden',
 	
 	//index.blade.php
+	'Leeftijd'		=> 'Leeftijd',
+	'Minimumloon'	=> 'Minimumloon',
 	'Loon per uur'  => 'Loon per uur',
 	'Geboortedatum' => 'Geboortedatum',
 	'Selecteer CAO' => 'Selecteer CAO',

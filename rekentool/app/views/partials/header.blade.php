@@ -8,7 +8,7 @@
    	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
    	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700' rel='stylesheet' type='text/css'>
 	
-	<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="assets/js/main.js"></script>
 </head>
 <body>
@@ -16,8 +16,8 @@
 <header>
 	<div class="container">
 		<div class="utilities">
-			<div class="entypo info"></div> <a href="#">{{Lang::get('rekentool-home.Informatie')}}</a>
-			<div class="entypo text-doc"></div> <a href="#">{{Lang::get('rekentool-home.Disclaimer')}}</a>
+			<a href="#"><div class="entypo info"></div><span>{{Lang::get('rekentool-home.Informatie')}}</span></a>
+			<a href="#"><div class="entypo text-doc"></div><span>{{Lang::get('rekentool-home.Disclaimer')}}</span></a>
 		</div>
 	
 		<div id="logo">

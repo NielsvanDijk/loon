@@ -7,7 +7,7 @@ class Caos extends Eloquent{
 
 	protected $table = 'caos';
 	
-	function salaries(){
-		return $this->hasMany('Salaries');
-	}
+	// function salaries(){
+	// 	return $this->hasMany('Salaries');
+	// }
 }
