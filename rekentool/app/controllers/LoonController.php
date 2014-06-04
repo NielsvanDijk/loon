@@ -33,11 +33,27 @@ class LoonController extends BaseController {
 	 */
 	public function index()
 	{
-		$caos = array('' => 'Select One') + Caos::lists('name', 'id');
-		// $salaries = Salaries::all();
+		$caos 	= array('' => 'Select One') + Caos::lists('name', 'id');
+
+		$days = array('');
+		
+		for ($i = 1; $i <= 31; $i++) {
+			$days[] = $i;
+		}
+
+		$months = array('', 'januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december');
+
+		$years = array('');
+		
+		for ($i = 1950; $i <= date('Y'); $i++) {
+			$years[] = $i;
+		}
 
 		return View::make('glastuin.index')
 			->with('caos', $caos)
+			->with('days', $days)
+			->with('months', $months)
+			->with('years', $years)
 			->with('language',Session::get('language'));
 
 
