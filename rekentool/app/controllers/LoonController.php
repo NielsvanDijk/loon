@@ -41,12 +41,12 @@ class LoonController extends BaseController {
 			$days[] = $i;
 		}
 
-		$months = array('', 'januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december');
+		$months = array('', 'Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December');
 
 		$years = array('');
 		
 		for ($i = 1950; $i <= date('Y'); $i++) {
-			$years[] = $i;
+			$years[$i] = $i;
 		}
 
 		return View::make('glastuin.index')
@@ -74,9 +74,9 @@ class LoonController extends BaseController {
 			'differenceRounded'	=> ''
 		);
 
-		$age = date('Y') - date('Y', strtotime($input['birthday']));
+		$age = date('Y') - date('Y', strtotime($input['month'].'/'.$input['day'].'/'.$input['year']));
 
-		if (!empty($input['birthday'])) {
+		if (!empty($input['day']) && !empty($input['month']) && !empty($input['year'])) {
 			$data = array_merge($data, array(
 				'age' => $age
 			));

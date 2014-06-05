@@ -7,33 +7,26 @@
 	</section>
 	<section id="calculation">
 		{{ Form::open(array('route' => 'loon.calculate', 'action' => '', 'method' => 'post', 'name' => 'calculator')) }}
-			<p class="form-element">
+			<div class="form-element">
 				<label for="birthday">{{Lang::get('rekentool-home.Geboortedatum')}}</label>
 				{{ Form::select('day', $days , Input::old('day'), array('id' => 'day', 'area-required' => 'true')) }}
 				{{ Form::select('month', $months , Input::old('month'), array('id' => 'month', 'area-required' => 'true')) }}
 				{{ Form::select('year', $years , Input::old('year'), array('id' => 'year', 'area-required' => 'true')) }}
-				<span class="error-message"></span>
-			</p>
-			<p class="form-element">
+			</div>
+			<div class="form-element">
 				<label for="cao">{{Lang::get('rekentool-home.Selecteer CAO')}}</label>
-				{{ Form::select('cao', $caos , Input::old('cao'), array('id' => 'cao', 'area-required' => 'true', 'data-validation-type' => 'cao')) }}
-				<span class="error-message"></span>
-			</p>
-			<p class="form-element">
+				{{ Form::select('cao', $caos , Input::old('cao'), array('id' => 'cao', 'area-required' => 'true')) }}
+			</div>
+			<div class="form-element">
 				<label for="salary">{{Lang::get('rekentool-home.Loon per uur')}}</label>
-				<div class="form-element form-element-container">
-					<span class="wage">
-						{{ Form::text('salary', null, array('id' => 'salary', 'area-required' => 'true', 'data-validation-type' => 'salary', 'placeholder' => Lang::get('rekentool-home.Loon per uur'))) }}
-					</span>
-					<span class="error-message"></span>
-				</div>
-			</p>
-			<p class="form-element">
+				<span class="wage">
+					{{ Form::text('salary', null, array('id' => 'salary', 'area-required' => 'true', 'data-validation-type' => 'number', 'placeholder' => Lang::get('rekentool-home.Loon per uur'))) }}
+				</span>
+			</div>
+			<div class="form-element">
 				<label for="years_of_service">{{Lang::get('rekentool-home.Dienstjaren')}}</label>
-				<div class="form-element form-element-container">
-					{{ Form::text('years_of_service', null, array('id' => 'years_of_service', 'area-required' => 'false', 'data-validation-type' => 'years_of_service', 'placeholder' => Lang::get('rekentool-home.Dienstjaren'))) }}
-				</div>
-			</p>
+				{{ Form::text('years_of_service', null, array('id' => 'years_of_service', 'area-required' => 'false', 'data-validation-type' => 'number', 'placeholder' => Lang::get('rekentool-home.Dienstjaren'))) }}
+			</div>
 			{{ Form::submit(Lang::get('rekentool-home.Berekenen')) }}
 		{{ Form::close() }}
 	</section>
@@ -61,61 +54,109 @@
 $(function() {
 	$('form[name="calculator"]').each(function(event) {
 		var form = $(this);
-
-		$('input', form).bind('blur', function(event) {
-			validate($(this));
-		});
-
-		$('select', form).bind('change', function(event) {
-			validate($(this));
-		});
-
-		form.bind('submit', function(event) {
-			validate();
-
-			return false;
-		});
-	});
-
-	function validate(element) {
-		if (element.is('[area-required="true"]')) {
-
-			var error 			= false;
-			var message 		= '';
-			var elementValue	= element.val();
-			var	elementParent	= element.closest('.form-element');
-
-			switch (element.data('validation-type')) {
-				case 'cao':
-					if (!elementValue) {
-						error 	= true;
-						message = 'please select a cao';
-					}
-					break;
-				case 'salary':
-					elementValue = elementValue.replace(",", ".");
-					if (!$.isNumeric(elementValue)) {
-						error 	= true;
-						message = 'unvalid number';
-					}
-					break;
-				default:
-					if ('' == elementValue || '0' == elementValue.toString()) {
-						error = true;
-						message = 'empty';
-					}
-					break;
-			}
-
-			if (error === true) {
-				elementParent.find('.error').remove();
-				elementParent.find('.error-message').append('<p class="error">' + message + '</p>');
-			} 
-			else {
-				elementParent.find('.error').remove();
+		
+		$('input, select', form).bind('blur, change', function(event) {
+			if (!validateElement($(this))) {
 				calculate();
 			}
+		});
+		
+		form.bind('submit', function(event) {
+			var error = false;
+			
+			if (!(error = validateElements($(this)))) {
+				calculate();
+			}
+			
+			return !error;
+		});
+	});
+	
+	function validateElement(element) {
+		var error = false;
+		var errorMessage = '';
+		
+		var elementValue = element.val();
+		var elementParent = element.parents('.form-element');
+		
+		if (undefined != element.attr('area-required')) {
+			switch (element.attr('data-validation-type')) {
+				case 'number':
+					elementValue = elementValue.replace(',', '.');
+					
+					element.val(elementValue);
+					
+					if (isNaN(elementValue)) {
+						error = true;
+						errorMessage = 'Dit veld moet een getal zijn.';
+					}
+					break;
+			}
+			
+			if ('' == elementValue || '0' == elementValue.toString()) {
+				error = true;
+				errorMessage = 'Dit veld is verplicht.';
+			}
+
+			if (error) {
+				$('.error-message', elementParent).remove();
+				
+				elementParent.addClass('error').append(
+					$('<span>').addClass('error-message').html(errorMessage)
+				);
+			} else {
+				elementParent.removeClass('error');
+				$('.error-message', elementParent).remove();
+			}
 		}
+
+		return error;
+	}
+	
+	function validateElements(form) {
+		var error = false;
+		
+		$('input, select').each(function() {
+			if (validateElement($(this))) {
+				error = true;
+			}
+		});
+		
+		return error;
+	}
+
+	//function validate(element) {
+		//if (element.is('[area-required="true"]')) {
+		//	var error 			= false;
+		//	var message 		= '';
+		//	var elementValue	= element.val();
+		//	var	elementParent	= element.closest('.form-element');
+
+		//	switch (element.data('validation-type')) {
+		//		case 'salary':
+		//			elementValue = elementValue.replace(",", ".");
+		//			if (!$.isNumeric(elementValue)) {
+		//				error 	= true;
+		//				message = 'unvalid number';
+		//			}
+		//			break;
+		//		default:
+		//			if ('' == elementValue || '0' == elementValue.toString()) {
+		//				error = true;
+		//				message = 'Dit veld is verplicht';
+		//			}
+		//			break;
+		//	}
+
+		//	if (error === true) {
+		//		elementParent.find('.error').remove();
+		//		elementParent.find('.error-message').append('<p class="error">' + message + '</p>');
+		//	} 
+		//	else {
+		//		elementParent.find('.error').remove();
+		//		calculate();
+		//	}
+		//}
 
 		//console.log(element);
 		//$('#calculation').find('[area-required="true"]').on('blur change', function() {
@@ -152,12 +193,14 @@ $(function() {
         //   	console.log(error);
 	       //  }
 		//});
-	}
+	//}
 
 	function calculate() {
 		var result = $('#result');
 
-		var birthdayInput 	= $('#birthday');
+		var dayInput 		= $('#day');
+		var monthInput 		= $('#month');
+		var yearInput 		= $('#year');
 	 	var caoInput		= $('#cao');
 	 	var salaryInput		= $('#salary');
 
@@ -168,14 +211,14 @@ $(function() {
 		$.ajax({
 			type 	: 'GET',
 			url 	: '{{URL::route('loon.calculate')}}',
-			data 	: {'birthday' : birthdayInput.val(), 'salary' : salaryInput.val(), 'cao' : caoInput.val()},
+			data 	: {'day' : dayInput.val(), 'month' : monthInput.val(), 'year' : yearInput.val(), 'cao' : caoInput.val(), 'salary' : salaryInput.val()},
 			success	: function(data) {
-				var diff = data.differenceRounded;
+				var difference = data.differenceRounded;
 
-				if (diff < 0) {
-					result.html('<h3>{{Lang::get("rekentool-home.Je verdient")}}<span>€ ' + diff.toString().substr(1) + '</span>{{Lang::get("rekentool-home.te veel")}}!</h3>');
-				} else if(diff > 0) {
-					result.html('<h3>{{Lang::get("rekentool-home.Je verdient")}}<span>€ ' + diff  + '</span>{{Lang::get("rekentool-home.te weinig")}}!</h3>');
+				if (difference < 0) {
+					result.html('<h3>{{Lang::get("rekentool-home.Je verdient")}}<span>€ ' + difference.toString().substr(1) + '</span>{{Lang::get("rekentool-home.te veel")}}!</h3>');
+				} else if(difference > 0) {
+					result.html('<h3>{{Lang::get("rekentool-home.Je verdient")}}<span>€ ' + difference  + '</span>{{Lang::get("rekentool-home.te weinig")}}!</h3>');
 				} else {
 					result.html('<h3>{{Lang::get("rekentool-home.Je verdient precies genoeg")}}!</h3>');
 				}
