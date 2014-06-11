@@ -31,7 +31,10 @@ $width: 1280px;
 
 #container{
 	width: 1018px;
-	margin: 0 auto;
+	left: 50%;
+	position: relative;
+	margin-left: -509px;
+	display: inline-block;
 	margin-top: -250px;
 	margin-bottom: 150px;
 }
@@ -55,6 +58,9 @@ $ssp: 'Source Sans Pro', sans-serif;
 	#container{
 		width: 100%;
 		padding: 0px 20px;
+		position: static;
+		left: 0;
+		margin-left: 0;
 		@include box-sizing(border-box);	
 
 		#intro, #calculation{

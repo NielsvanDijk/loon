@@ -23,7 +23,7 @@ class LoonController extends BaseController {
 
         else
         
-        { return 'test'; }
+        { return false; }
     }
 
 	/**

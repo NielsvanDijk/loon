@@ -4,6 +4,8 @@ footer{
 	background: $primary;
 	text-align: center;
 	color:WHITE;
+	/*position:absolute;*/
+   	bottom:0;
 	padding: 35px 0 0 0;
 	font-size: 14px;
 	@include box-sizing(border-box);

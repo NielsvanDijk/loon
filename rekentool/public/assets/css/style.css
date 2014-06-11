@@ -12,7 +12,10 @@
 
 #container {
   width: 1018px;
-  margin: 0 auto;
+  left: 50%;
+  position: relative;
+  margin-left: -509px;
+  display: inline-block;
   margin-top: -250px;
   margin-bottom: 150px;
 }
@@ -27,6 +30,9 @@
   #container {
     width: 100%;
     padding: 0px 20px;
+    position: static;
+    left: 0;
+    margin-left: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -139,6 +145,8 @@ footer {
   background: #37afd8;
   text-align: center;
   color: WHITE;
+  /*position:absolute;*/
+  bottom: 0;
   padding: 35px 0 0 0;
   font-size: 14px;
   -webkit-box-sizing: border-box;
@@ -158,7 +166,7 @@ footer {
   height: auto;
   padding: 25px 30px 40px 30px;
   background: #f6f6f6;
-  display: inline-block;
+  float: left;
   vertical-align: top;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -178,7 +186,7 @@ footer {
   width: 250px;
   min-height: 100px;
   margin-right: 15px;
-  display: inline-block;
+  float: left;
   vertical-align: top;
   background: #f6f6f6;
   padding: 15px 15px 25px 15px;
@@ -203,7 +211,7 @@ footer {
   width: 250px;
   min-height: 100px;
   margin-left: 15px;
-  display: inline-block;
+  float: left;
   vertical-align: top;
   background: #37afd8;
   padding: 15px 15px 25px 15px;
@@ -274,12 +282,12 @@ input, select {
 span.wage input {
   padding: 15px 15px 15px 35px;
 }
-span.wage:after {
+span.wage:before {
   content: "€";
   font-weight: 400 !important;
   font-size: 20px;
-  position: relative;
-  left: -373px;
+  position: absolute;
+  left: 310px;
   color: #7f7f7f !important;
   margin: 13px 0 0 0;
 }
@@ -296,6 +304,12 @@ select {
   border-radius: 0px;
   background: url("../img/chevron.png") no-repeat 100% white;
   background-position: right 20px center;
+}
+select#day, select#month, select#year {
+  width: 122px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 13px;
 }
 
 input[type="submit"] {
@@ -318,6 +332,17 @@ input[type="submit"] {
   padding: 14px 0px;
 }
 
+@media all and (min-width: 0px) and (max-width: 768px) {
+  span.wage:before {
+    content: "€";
+    font-weight: 400 !important;
+    font-size: 20px;
+    position: absolute;
+    left: 43px;
+    color: #7f7f7f !important;
+    margin: 13px 0 0 0;
+  }
+}
 .error-message p.error {
   background: #37afd8;
   color: white;
@@ -1336,6 +1361,8 @@ html {
  */
 body {
   margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 /* HTML5 display definitions

@@ -23,12 +23,12 @@ span{
 			padding: 15px 15px 15px 35px;
 		}
 		
-		&:after{
+		&:before{
 			content: "€";
 			font-weight: 400 !important;
 			font-size: 20px;
-		    position: relative;
-		    left: -373px;
+		    position: absolute;
+		    left: 310px;
 			color: #7f7f7f !important;
 			margin: 13px 0 0 0;
 		}
@@ -42,6 +42,13 @@ select{
 
 	background: url('../img/chevron.png') no-repeat 100% #fff;
     background-position: right 20px center;
+
+    &#day, &#month, &#year{
+    	width: 122px;
+    	float: left;
+    	margin-right: 10px;
+    	margin-bottom: 13px;
+    }
 }
 
 input[type="submit"]{
@@ -60,4 +67,20 @@ input[type="submit"]{
 	margin-top: 40px;
 	margin-left: -29px;
 	padding: 14px 0px;
+}
+
+@media all and (min-width : $mq-mobile-min) and (max-width: $mq-mobile-max){
+	span{
+		&.wage{
+			&:before{
+			content: "€";
+			font-weight: 400 !important;
+			font-size: 20px;
+		    position: absolute;
+		    left: 43px;
+			color: #7f7f7f !important;
+			margin: 13px 0 0 0;
+		}
+		}
+	}
 }

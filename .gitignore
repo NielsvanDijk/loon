@@ -1,5 +1,6 @@
 # ignores
 //.gitignore
 loonbereking/vendor
+rekentool/app/config/database.php
 composer.phar
 .DS_Store
