@@ -1,5 +1,6 @@
 # ignores
 //.gitignore
+rekentool/app/config/database.php
 loonbereking/vendor
 rekentool/app/config/database.php
 composer.phar
